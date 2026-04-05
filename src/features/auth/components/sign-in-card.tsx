@@ -29,7 +29,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
     setPending(true);
     signIn("password", { email, password, flow: "signIn" })
       .catch(() => {
-        setError("Something went wrong");
+        setError("Что-то пошло не так...");
       })
       .finally(() => {
         setPending(false);
@@ -48,10 +48,10 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
     <Card className="w-full h-full p-8">
       <CardHeader className="px-0 pt-0">
         <CardTitle>
-          Login to your account
+          Вход в аккаунт
         </CardTitle>
         <CardDescription>
-          Use your email or another service to continue
+          Используйте электронную почту или сторонний сервис чтобы продолжить
         </CardDescription>
       </CardHeader>
       {!!error && (
@@ -74,7 +74,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             disabled={pending}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            placeholder="Password"
+            placeholder="Пароль"
             type="password"
             required
           />
@@ -92,7 +92,7 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             className="w-full relative"
           >
             <FcGoogle className="size-5 absolute tope-2.5 left-2.5" />
-            Login with Google
+            Войти с помощью Google
           </Button>
           <Button 
             disabled={pending}
@@ -102,11 +102,11 @@ export const SignInCard = ({ setState }: SignInCardProps) => {
             className="w-full relative"
           >
             <FaGithub className="size-5 absolute tope-2.5 left-2.5" />
-            Login with Github
+            Войти с помощью Github
           </Button>
         </div>
         <p className="text-xs text-muted-foreground">
-          Don&apos;t have an account? <span onClick={() => setState("signUp")} className="text-sky-700 hover:underline cursor-pointer">Sign Up</span>
+          Еще нет аккаунта? <span onClick={() => setState("signUp")} className="text-sky-700 hover:underline cursor-pointer">Зарегистрироваться</span>
         </p>
       </CardContent>
     </Card>
